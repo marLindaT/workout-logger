@@ -14,20 +14,47 @@
   
   
   <select>
-  <option value="back-squat">Back Squat</option>
-  <option value="bench-press">Bench Press</option>
-  <option value="overhead-press">Overhead Press</option>
-  <option value="clean-and-push-press">Clean and Push Press</option>
-  <option value="deadlift">Deadlift</option>
+    <option value="back-squat">Back Squat</option>
+    <option value="bench-press">Bench Press</option>
+    <option value="overhead-press">Overhead Press</option>
+    <option value="clean-and-push-press">Clean and Push Press</option>
+    <option value="deadlift">Deadlift</option>
   </select>
   
   
-  <div class="rep-count-input-cluster">
-  <input id="" class="" type="button" value="-">
-  <input id="" class="" type="number" pattern="">
-  <input id="" class="" type="button" value="+">
-  </div>
+  <section id="rep-countcontainer">
+    <div class="rep-count-input-cluster">
+      <input id="" class="" type="button" value="-">
+      <input id="" class="" type="number" pattern="">
+      <input id="" class="" type="button" value="+">
+    </div>
+  </section>
+
+  <input id="add-rep-set-btn" type="button" value="Add Set" >
   
-  
+<script>
+
+
+
+
+const addSet = function (){
+  alert("hhl");
+
+  let itm =  document.getElementById("rep-countcontainer").lastChild;
+  let cln = itm.cloneNode(true);
+  document.getElementById("rep-countcontainer").appendChild(cln);
+
+  return itm;
+
+}
+
+
+
+document.getElementById("add-rep-set-btn").addEventListener("click", addSet);
+
+
+</script>
+
+
 </body>
 </html>
