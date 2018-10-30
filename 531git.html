@@ -1,52 +1,143 @@
-<!DOCTYPE HTML>
-<html lang = "en">
+<!DOCTYPE html>
+<html lan ='en'>
 <head>
-  <!-- basic.html -->
+
+<!----------------------------------------------------->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+<!--END Global site tag (gtag.js) - Google Analytics -->
+<!----------------------------------------------------->
   <title>basic.html</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset = "UTF-8" />
+
+<meta charset = 'UTF-8'>
+<meta name="description" content="Cannabis extracts, concentrates and chemistry related to marijuana">
+  <meta name="keywords" content="Strength training, Jim Wendler, 531 ">
+  <meta name="author" content="MarlindaT">
+<meta http-equiv="X-US-Compatible"  content="IE=edge">
+<meta name = 'viewport' content= 'width = device-width, initial-scale = 1'>
+
+
+  <!-- basic.html -->
+<style>
+
+input:focus{
+	background-color: yellow;
+}
+.rep-input-field{
+	width: 60px;
+	padding: 3px 5px;
+	box-sizing: border-box;
+	border: 2px solid red;
+	border-radius: 5px;
+}
+.weight-input-field{
+	width: 100px;
+	padding: 3px 5px;
+	box-sizing: border-box;
+	border: 2px solid red;
+	border-radius: 5px;
+}
+
+
+input[type=button]{
+	border: 2px solid red;
+}
+/************** CSS GRID LAYOUT ************/
+#wrapper{
+	display: grid;
+	grid-gap: 2vw;
+
+	grid-template-columns:repeat(9, 1fr);
+	grid-template-rows: repeat(5, 1fr);
+}
+#top{
+	grid-column: 1/10;
+	grid-row: 1/3;
+}
+#rep-count-container{
+	grid-column:1/5;
+	grid-row: 4/6;
+}
+
+#weight-count-container{
+	grid-column: 6/10;
+	grid-row: 4/6;
+}
+
+/********END OF GRID LAYOUT **************/
+
+</style>
 </head>
+
+
 <body>
   <h1>Level One Headline</h1>
   <p>
   generic barbell workout tracker 
   </p>
   
+<main id=wrapper>
+
+
+  <section id="top" class="big-lift">
+	  <select>
+	    <option value="back-squat">Back Squat</option>
+	    <option value="bench-press">Bench Press</option>
+	    <option value="overhead-press">Overhead Press</option>
+	    <option value="clean-and-push-press">Clean and Push Press</option>
+	    <option value="deadlift">Deadlift</option>
+	  </select>
+	</section>	  
   
-  <select>
-    <option value="back-squat">Back Squat</option>
-    <option value="bench-press">Bench Press</option>
-    <option value="overhead-press">Overhead Press</option>
-    <option value="clean-and-push-press">Clean and Push Press</option>
-    <option value="deadlift">Deadlift</option>
-  </select>
-  
-  
-  <section id="rep-countcontainer">
-    <div class="rep-count-input-cluster">
-      <input id="" class="" type="button" value="-">
-      <input id="" class="" type="number" pattern="">
-      <input id="" class="" type="button" value="+">
+
+  <section id="weight-count-container">
+    <div id="weight-count-input-cluster" class="rep-count-input-cluster">
+      <button class="rep-btn">-</button>
+      <input class="weight-input-field" type="number"placeholder="Weight" pattern="">
+      <button class="rep-btn">+</button>
     </div>
+
+      
   </section>
 
-  <input id="add-rep-set-btn" type="button" value="Add Set" >
+  <section id="rep-count-container">
+    <div id="rep-count-input-cluster" class="rep-count-input-cluster">
+      <button class="rep-btn">-</button>
+      <input class="rep-input-field" type="number"placeholder="Reps" pattern="">
+      <button class="rep-btn">+</button>
+    </div>
+
+    <button id="add-rep-set-btn" type="button">Add Set</button>
   
+  </section>
+
+  </main>
+
+
+
 <script>
 
 
 
 
 const addSet = function (){
-  alert("hhl");
 
-  let itm =  document.getElementById("rep-countcontainer").lastChild;
+
+  let itm =  document.getElementById("rep-count-input-cluster");
+  let target = document.getElementById("rep-count-container");
   let cln = itm.cloneNode(true);
-  document.getElementById("rep-countcontainer").appendChild(cln);
+  let list = document.getElementById("rep-count-container");
+  list.insertBefore(cln, list.childNodes[0]);
 
-  return itm;
+  let itm2 =  document.getElementById("weight-count-input-cluster");
+  let target2 = document.getElementById("weight-count-container");
+  let cln2 = itm2.cloneNode(true);
+  let list2 = document.getElementById("weight-count-container");
+  list2.insertBefore(cln2, list2.childNodes[0]);
 
-}
+
+};
 
 
 
